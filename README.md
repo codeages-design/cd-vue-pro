@@ -1,4 +1,4 @@
-# es-vue
+# {{ name }}
 
 > 基于vue-cli + webpack 的 Vue 基础模版
 
