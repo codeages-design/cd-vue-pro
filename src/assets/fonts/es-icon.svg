@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Wed Jul 26 19:24:00 2017
+ By admin
+</metadata>
+<defs>
+<font id="es-icon" horiz-adv-x="1024" >
+  <font-face 
+    font-family="es-icon"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    x-height="792"
+    bbox="43 -43 981 811"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0078-E953"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="341" 
+ />
+    <glyph glyph-name="x" unicode="x" horiz-adv-x="1001" 
+d="M281 543q-27 -1 -53 -1h-83q-18 0 -36.5 -6t-32.5 -18.5t-23 -32t-9 -45.5v-76h912v41q0 16 -0.5 30t-0.5 18q0 13 -5 29t-17 29.5t-31.5 22.5t-49.5 9h-133v-97h-438v97zM955 310v-52q0 -23 0.5 -52t0.5 -58t-10.5 -47.5t-26 -30t-33 -16t-31.5 -4.5q-14 -1 -29.5 -0.5
+t-29.5 0.5h-32l-45 128h-439l-44 -128h-29h-34q-20 0 -45 1q-25 0 -41 9.5t-25.5 23t-13.5 29.5t-4 30v167h911zM163 247q-12 0 -21 -8.5t-9 -21.5t9 -21.5t21 -8.5q13 0 22 8.5t9 21.5t-9 21.5t-22 8.5zM316 123q-8 -26 -14 -48q-5 -19 -10.5 -37t-7.5 -25t-3 -15t1 -14.5
+t9.5 -10.5t21.5 -4h37h67h81h80h64h36q23 0 34 12t2 38q-5 13 -9.5 30.5t-9.5 34.5q-5 19 -11 39h-368zM336 498v228q0 11 2.5 23t10 21.5t20.5 15.5t34 6h188q31 0 51.5 -14.5t20.5 -52.5v-227h-327z" />
+    <glyph glyph-name="course" unicode="&#xe82c;" 
+d="M896 683q-68 21 -149 21q-151 0 -235 -64q-84 64 -234.5 64t-234.5 -64v-625q0 -8 6.5 -14.5t14.5 -6.5q2 0 5.5 1t5.5 1q43 21 99.5 34t102.5 13q151 0 235 -64q43 27 111.5 45.5t123.5 18.5q119 0 202 -45q5 -2 11 -2q8 0 14.5 6.5t6.5 14.5v623q-34 26 -85 43z
+M896 107q-67 21 -149 21q-55 0 -123.5 -18.5t-111.5 -45.5v491q43 27 111.5 45.5t123.5 18.5q82 0 149 -22v-490z" />
+    <glyph glyph-name="chart-bar" unicode="&#xe82d;" 
+d="M171 384h170v-341h-170v341zM683 512h170v-469h-170v469zM427 725h170v-682h-170v682z" />
+    <glyph glyph-name="home" unicode="&#xe82f;" 
+d="M512 768l-427 -384h128v-341h214v256h170v-256h214v341h128z" />
+    <glyph glyph-name="classroom" unicode="&#xe831;" 
+d="M171 640h-86v-597q0 -36 25 -61t61 -25h597v86h-597v597zM853 811h-512q-35 0 -60 -25t-25 -61v-512q0 -35 25 -60t60 -25h512q36 0 61 25t25 60v512q0 36 -25 61t-61 25zM640 256h-256v85h256v-85zM811 427h-427v85h427v-85zM811 597h-427v86h427v-86z" />
+    <glyph glyph-name="person" unicode="&#xe833;" 
+d="M341 555v0q0 -71 50 -121t121 -50t121 50t50 121v0q0 70 -50 120t-121 50t-121 -50t-50 -120zM512 299q-46 0 -102.5 -11t-111 -31t-91 -54t-36.5 -75v-85h682v85q0 41 -36.5 75t-91 54t-111 31t-102.5 11z" />
+    <glyph glyph-name="save" unicode="&#xe837;" 
+d="M725 768h-512q-35 0 -60 -25t-25 -60v-598q0 -35 25 -60t60 -25h598q35 0 60 25t25 60v512zM512 85q-54 0 -91 37t-37 91.5t37 91t91 36.5t91 -36.5t37 -91t-37 -91.5t-91 -37zM640 512h-427v171h427v-171z" />
+    <glyph glyph-name="delete" unicode="&#xe838;" 
+d="M256 85q0 -35 25 -60t60 -25h342q35 0 60 25t25 60v512h-512v-512zM661 725l-42 43h-214l-42 -43h-150v-85h598v85h-150z" />
+    <glyph glyph-name="arrow-down" unicode="&#xe844;" 
+d="M708 563l-196 -196l-196 196l-60 -60l256 -256l256 256z" />
+    <glyph glyph-name="arrow-left" unicode="&#xe845;" 
+d="M657 602l-60 59l-256 -256l256 -256l60 60l-196 196z" />
+    <glyph glyph-name="menu" unicode="&#xe846;" 
+d="M128 213h768v-85h-768v85zM128 427h768v-86h-768v86zM128 640h768v-85h-768v85z" />
+    <glyph glyph-name="more-horiz" unicode="&#xe93e;" 
+d="M256 469q-35 0 -60 -25t-25 -60t25 -60t60 -25t60 25t25 60t-25 60t-60 25zM768 469q-35 0 -60 -25t-25 -60t25 -60t60 -25t60 25t25 60t-25 60t-60 25zM512 469q-35 0 -60 -25t-25 -60t25 -60t60 -25t60 25t25 60t-25 60t-60 25z" />
+    <glyph glyph-name="arrow-drop-down" unicode="&#xe952;" 
+d="M299 469l213 -213l213 213h-426z" />
+    <glyph glyph-name="arrow-drop-up" unicode="&#xe953;" 
+d="M299 299l213 213l213 -213h-426z" />
+  </font>
+</defs></svg>
