@@ -8,7 +8,13 @@
       }],
       "stage-2"
     ],
-    "plugins": ["transform-runtime"],
+    "plugins": [
+      "transform-runtime",
+      ["import", {
+        "libraryName": "cd-vue",
+        "libraryDirectory": "src/components"
+      }]
+    ],
     "env": {
       "test": {
         "presets": ["env", "stage-2"],
@@ -16,4 +22,3 @@
       }
     }
   }
-  

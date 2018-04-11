@@ -1,5 +1,11 @@
 <template>
   <div>
+    <cd-alert
+      :isShowIcon="true"
+      type="info"
+      @close="alertClose">
+      这是你的控制台
+    </cd-alert>
     <x-panel>
       <span slot="title">今日数据</span>
       <ul class="subfield-list">
@@ -120,6 +126,9 @@ export default {
       this.getPayOrderStatistic().then((res) => {
         console.log('getPayOrderStatistic', res);
       });
+    },
+    alertClose(e) {
+      console.log('alert被关闭了', e)
     }
   }
 }

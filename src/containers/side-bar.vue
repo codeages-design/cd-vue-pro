@@ -1,7 +1,7 @@
 <template>
   <div class="es-sidebar">
     <div class="sidebar__header">
-      <span class="sidebar__logo text-overflow">EduSoho Vue</span>
+      <span class="sidebar__logo text-overflow">Codeages Vue Pro</span>
       <span class="sidebar__toggle" @click="sidebarToggle"><i class="es-icon es-icon-menu"></i></span>
     </div>
     <ul class="sidebar__nav">
