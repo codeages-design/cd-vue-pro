@@ -6,11 +6,12 @@ import utils from '@/utils';
 import store from '@/store';
 import plugins from '@/plugins';
 import '@/components';
-import { Alert } from 'cd-vue';
+import { Alert, Panel } from 'cd-vue';
 import 'cd-vue/src/styles/index.less';
 import '@/assets/styles/main.less';
 
 Vue.component('cd-alert', Alert);
+Vue.component('cd-panel', Panel);
 
 Vue.use(filters);
 Vue.use(plugins);

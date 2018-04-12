@@ -6,8 +6,8 @@
       @close="alertClose">
       这是你的控制台
     </cd-alert>
-    <x-panel>
-      <span slot="title">今日数据</span>
+
+    <cd-panel title="今日数据" size="sm">
       <ul class="subfield-list">
         <li class="subfield-item" v-for="item in todayData" :key="item.title">
           <div class="subfield-item__title">{{ item.title }}</div>
@@ -15,7 +15,8 @@
           <div class="subfield-item__subtitle">{{ item.subtitle }}: {{ item.total }}</div>
         </li>
       </ul>
-    </x-panel>
+    </cd-panel>
+
     <el-row :gutter="24" v-if="isAdmin || isSuperAdmin">
       <el-col :span="10">
         <x-panel>
@@ -36,6 +37,7 @@
         </x-panel>
       </el-col>
     </el-row>
+
   </div>
 </template>
 
