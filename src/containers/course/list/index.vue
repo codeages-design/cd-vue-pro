@@ -25,7 +25,7 @@
         label="课程状态"
         width="120">
         <template scope="scope">
-          {{ scope.row.status|courseStatus }}
+          {{ scope.row.status }}
         </template>
       </el-table-column>
       <el-table-column
@@ -43,7 +43,7 @@
         label="课程类型"
         width="120">
         <template scope="scope">
-          {{ scope.row.type|courseType }}
+          {{ scope.row.type }}
         </template>
       </el-table-column>
       <el-table-column
@@ -56,14 +56,14 @@
         label="创建时间"
         width="200">
         <template scope="scope">
-          {{ scope.row.createdTime|datetime }}
+          {{ scope.row.createdTime }}
         </template>
       </el-table-column>
       <el-table-column
         label="更新时间"
         width="200">
         <template scope="scope">
-          {{ scope.row.updatedTime|datetime }}
+          {{ scope.row.updatedTime }}
         </template>
       </el-table-column>
     </el-table>
