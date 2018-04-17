@@ -18,26 +18,24 @@
       </ul>
     </cd-panel>
 
-    <el-row :gutter="24" v-if="isAdmin || isSuperAdmin">
-      <el-col :span="10">
-        <x-panel>
-          <span slot="title">付费订单</span>
+    <cd-row :gutter="24" v-if="isAdmin || isSuperAdmin">
+      <cd-col :span="10">
+        <cd-panel title="付费订单" size="sm">
           <x-pie-chart
             :height="400"
             :data="payOrderData">
           </x-pie-chart>
-        </x-panel>
-      </el-col>
-      <el-col :span="14">
-        <x-panel>
-          <span slot="title">付费订单</span>
+        </cd-panel>
+      </cd-col>
+      <cd-col :span="14">
+        <cd-panel title="付费订单" size="sm">
           <x-line-chart
             :height="400"
             :data="orderData">
           </x-line-chart>
-        </x-panel>
-      </el-col>
-    </el-row>
+        </cd-panel>
+      </cd-col>
+    </cd-row>
 
   </div>
 </template>
@@ -165,7 +163,6 @@ export default {
   }
   .subfield-item__number {
     font-size: 24px;
-    /* margin-bottom: 10px; */
     display: block;
     color: #313131;
   }
