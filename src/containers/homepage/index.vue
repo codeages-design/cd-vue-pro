@@ -3,8 +3,9 @@
     <cd-alert
       :isShowIcon="true"
       type="info"
-      @close="alertClose">
-      这是你的控制台
+      @close="alertClose"
+    >
+      <span @click="message">触发message</span>
     </cd-alert>
 
     <cd-panel title="今日数据" size="sm">
@@ -131,6 +132,13 @@ export default {
     },
     alertClose(e) {
       console.log('alert被关闭了', e)
+    },
+    message() {
+      this.$message({
+        type: 'warning',
+        message: '这是message的一个例子',
+        isShowClose: true
+      });
     }
   }
 }
