@@ -1,6 +1,6 @@
-# es-vue
+# cd-vue-pro
 
-> 基于vue-cli + webpack 的 Vue 基础模版
+> 基于Vue的中后台解决方案
 
 ### 内容
 
