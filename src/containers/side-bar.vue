@@ -1,27 +1,82 @@
 <template>
-  <div class="es-sidebar">
-    <div class="sidebar__header">
-      <span class="sidebar__logo text-overflow">EduSoho Vue</span>
-      <span class="sidebar__toggle" @click="sidebarToggle"><i class="es-icon es-icon-menu"></i></span>
+  <aside class="cvp-sidebar">
+    <div class="cvp-sidebar__header">
+      <span class="cvp-sidebar__logo cvp-text-overflow">
+        Codeages Vue Pro
+      </span>
     </div>
-    <ul class="sidebar__nav">
-      <li class="sidebar__nav-item" :class="{ active: routeName === 'homepage' }" @click="switchNav('homepage')">
-        <i class="es-icon es-icon-home"></i> <span class="sidebar__nav-item__name">首页</span>
-      </li>
-      <li class="sidebar__nav-item" :class="{ active: routeName === 'courseList' }" @click="switchNav('courseList')">
-        <i class="es-icon es-icon-course"></i> <span class="sidebar__nav-item__name">所有课程</span>
+    <ul class="cvp-sidebar__nav">
+      <li class="cvp-sidebar__nav-item"
+        @click="switchNav(item.routeName)"
+        v-for="(item, index) in sideMenu"
+        :key="index"
+      >
+        <div
+          class="cvp-sidebar__nav-item__title cvp-text-overflow"
+          :class="{ open: item.isShowSub }"
+          v-if="item.children"
+          @click="menuToggle(index)"
+        >
+          <i :class="item.icon" v-if="item.icon"></i>
+
+          <span class="cvp-sidebar__nav-item__name">
+            {{ item.title }}
+          </span>
+          <span class="cvp-sidebar__nav-item__action">
+            <i class="cvp-icon cvp-icon-arrow-down"></i>
+          </span>
+        </div>
+
+        <div
+          class="cvp-sidebar__nav-item__title  cvp-text-overflow"
+          :class="{ active: routeName === item.routeName }"
+          @click="switchNav(item.routeName)"
+          v-else
+        >
+          <i :class="item.icon" v-if="item.icon"></i>
+          <span class="cvp-sidebar__nav-item__name">
+            {{ item.title }}
+          </span>
+        </div>
+        <transition
+          name="submenu-fade"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+        >
+          <ul class="cvp-sidebar__subnav" v-show="item.isShowSub">
+            <li
+            :class="{ active: routeName === subitem.routeName }"
+            @click="switchNav(subitem.routeName)"
+            v-for="(subitem, subindex) in item.children"
+            :key="subindex"
+            >
+              <i :class="item.icon" v-if="subitem.icon"></i>
+              {{ subitem.title }}
+            </li>
+          </ul>
+        </transition>
       </li>
     </ul>
-  </div>
+  </aside>
 </template>
 
 <script>
+import { sideMenu } from '../data';
+import transition from '@/mixins/transition';
+
 export default {
   data() {
     return {
-      routeName: ''
+      sideMenu,
+      routeName: '',
+      height: null,
     }
   },
+  mixins: [transition],
   watch: {
     '$route': 'getRoute'
   },
@@ -32,40 +87,48 @@ export default {
     getRoute() {
       this.routeName = this.$route.name;
     },
-    sidebarToggle() {
-      this.$emit('sidebarToggle');
-    },
     switchNav(name) {
       this.$router.push({ name: name });
+    },
+    menuToggle(index) {
+      this.$set(this.sideMenu[index], 'isShowSub', !this.sideMenu[index].isShowSub);
     }
   }
 }
 </script>
 
 <style lang="less">
+@import '~@/assets/styles/mixins.less';
+@import '~@/assets/styles/variables.less';
+
 .hide-sidebar {
-  .es-sidebar {
+  .cvp-sidebar {
     width: 64px;
-    .sidebar__logo {
+    .cvp-transition();
+    &__header {
+      padding: 19px 12px;
+    }
+    &__logo {
+      width: 40px;
+      .cvp-transition();
+    }
+    &__nav-item {
+      padding-left: 0;
+    }
+    &__nav-item__action {
       display: none;
     }
-    .sidebar__toggle {
-      float: none;
-    }
-    .sidebar__nav-item {
-      padding-left: 0;
-      text-align: center;
-    }
-    .sidebar__nav-item__name {
+    &__nav-item__name {
       display: none;
     }
   }
-  .es-main {
+  .cvp-main {
     margin-left: 64px;
+    .cvp-transition();
   }
 }
 
-.es-sidebar {
+.cvp-sidebar {
   position: fixed;
   left: 0;
   top: 0;
@@ -73,39 +136,42 @@ export default {
   width: 220px;
   height: 100%;
   color: #fff;
-  background-color: #242639;
-  .sidebar__header {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: @sidebar-color;
+  .cvp-transition();
+  &__header {
     padding: 19px 24px;
     background-color: #31344f;
+    background-color: lighten(@sidebar-color, 5%);
   }
-  .sidebar__logo {
-    width: 150px;
+  &__logo {
+    width: 100%;
     display: inline-block;
+    .cvp-transition();
   }
-  .sidebar__toggle {
-    float: right;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  .sidebar__nav {
+  &__nav {
     margin: 0;
     padding: 16px 0;
     font-size: 14px;
+    list-style: none;
   }
-  .sidebar__nav-item {
+  &__nav-item__title {
     position: relative;
     display: block;
-    padding-left: 24px;
-    height: 48px;
-    line-height: 48px;
+    padding: 12px 24px;
+    line-height: 20px;
     color: #fff;
+    .cvp-transition();
     &:hover {
       cursor: pointer;
       background: #333951;
+      background-color: darken(@sidebar-color, 3%);
+      .cvp-transition();
     }
     &.active {
       background: #1b1c29;
+      background-color: darken(@sidebar-color, 5%);
       &:before {
         position: absolute;
         top: 0;
@@ -114,8 +180,47 @@ export default {
         width: 4px;
         height: 100%;
         background: #535cac;
+        background-color: @color-primary;
+      }
+    }
+    &.open {
+      .cvp-sidebar__nav-item__action {
+        > i {
+          transform: rotate(180deg);
+          .cvp-transition();
+        }
       }
     }
   }
+  &__nav-item__action {
+    > i {
+      position: absolute;
+      right: 24px;
+      .cvp-transition();
+    }
+  }
+  &__subnav {
+    padding-left: 0;
+    background: #000;
+    > li {
+      padding: 12px 24px 12px 48px;
+      list-style: none;
+      .cvp-transition();
+      opacity: 0.6;
+      color: #f1f1f1;
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        .cvp-transition();
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.collapse-transition {
+  transition: height .3s;
 }
 </style>
