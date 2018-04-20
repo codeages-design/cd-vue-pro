@@ -147,27 +147,29 @@ export default {
   display: flex;
   padding-left: 0;
   margin: 0 auto;
-  .subfield-item {
-    flex: 1;
-    color: #616161;
-    text-align: center;
-    list-style: none;
-    + .subfield-item {
-      border-left: 1px solid #f5f5f5;
-    }
+}
+
+.subfield-item {
+  flex: 1;
+  color: #616161;
+  text-align: center;
+  list-style: none;
+  + .subfield-item {
+    border-left: 1px solid #f5f5f5;
   }
-  .subfield-item__title {
+  &__title {
     font-size: 14px;
     color: #313131;
     margin-top: 0;
   }
-  .subfield-item__number {
+  &__number {
     font-size: 24px;
     display: block;
     color: #313131;
   }
-  .subfield-item__subtitle {
+  &__subtitle {
     color: #919191;
   }
 }
+
 </style>

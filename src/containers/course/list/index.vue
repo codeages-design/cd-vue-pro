@@ -15,8 +15,8 @@
         label="课程名"
         min-width="300">
         <template scope="scope">
-          <div style="padding: 10px 0" class="text-overflow">
-            <img class="v-middle" style="height: 60px" :src="scope.row.cover.small" alt="">
+          <div style="padding: 10px 0" class="cvp-text-overflow">
+            <img class="cvp-v-middle" style="height: 60px" :src="scope.row.cover.small" alt="">
             <span>{{ scope.row.title }}</span>
           </div>
         </template>
@@ -34,7 +34,7 @@
         width="120"
         sortable>
         <template scope="scope">
-          <div class="text-right width-50">
+          <div class="cvp-text-right cvp-width-50">
             {{ scope.row.minCoursePrice }}
           </div>
         </template>
@@ -67,7 +67,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="es-pagination text-right" v-if="paging.total > paging.limit">
+    <div class="cvp-pagination cvp-text-right" v-if="paging.total > paging.limit">
       <el-pagination
         layout="total, prev, pager, next, jumper"
         @current-change="handleCurrentChange"
