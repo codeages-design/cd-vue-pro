@@ -41,7 +41,6 @@
           </span>
         </div>
         <transition
-          name="submenu-fade"
           @before-enter="beforeEnter"
           @enter="enter"
           @after-enter="afterEnter"
