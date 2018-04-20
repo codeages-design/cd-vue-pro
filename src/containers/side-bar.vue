@@ -1,5 +1,5 @@
 <template>
-  <aside class="cvp-sidebar">
+  <aside class="cvp-sidebar" :class="{ 'cvp-sidebar--collapse': isCollapse }">
     <div class="cvp-sidebar__header">
       <span class="cvp-sidebar__logo cvp-text-overflow">
         Codeages Vue Pro
@@ -10,12 +10,14 @@
         @click="switchNav(item.routeName)"
         v-for="(item, index) in sideMenu"
         :key="index"
+        @mouseover="mouseover(index)"
+        @mouseout="mouseout(index)"
       >
         <div
           class="cvp-sidebar__nav-item__title cvp-text-overflow"
           :class="{ open: item.isShowSub }"
           v-if="item.children"
-          @click="menuToggle(index)"
+          @click="showSubToggle(index)"
         >
           <i :class="item.icon" v-if="item.icon"></i>
 
@@ -69,6 +71,7 @@ import { sideMenu } from '../data';
 import transition from '@/mixins/transition';
 
 export default {
+  props: ['isCollapse'],
   data() {
     return {
       sideMenu,
@@ -78,7 +81,14 @@ export default {
   },
   mixins: [transition],
   watch: {
-    '$route': 'getRoute'
+    '$route': 'getRoute',
+    isCollapse(val) {
+      if (val) {
+        this.sideMenu.map((item, index) => {
+          this.$set(this.sideMenu[index], 'isShowSub', false);
+        })
+      }
+    }
   },
   created() {
     this.getRoute();
@@ -90,8 +100,23 @@ export default {
     switchNav(name) {
       this.$router.push({ name: name });
     },
-    menuToggle(index) {
+    setShowSub(index) {
       this.$set(this.sideMenu[index], 'isShowSub', !this.sideMenu[index].isShowSub);
+    },
+    showSubToggle(index) {
+      if (!this.isCollapse) {
+        this.setShowSub(index);
+      }
+    },
+    mouseover(index) {
+      if (this.isCollapse) {
+        this.setShowSub(index);
+      }
+    },
+    mouseout(index) {
+      if (this.isCollapse) {
+        this.setShowSub(index);
+      }
     }
   }
 }
@@ -101,30 +126,39 @@ export default {
 @import '~@/assets/styles/mixins.less';
 @import '~@/assets/styles/variables.less';
 
-.hide-sidebar {
-  .cvp-sidebar {
-    width: 64px;
-    .cvp-transition();
-    &__header {
-      padding: 19px 12px;
-    }
-    &__logo {
-      width: 40px;
-      .cvp-transition();
-    }
-    &__nav-item {
-      padding-left: 0;
-    }
-    &__nav-item__action {
-      display: none;
-    }
-    &__nav-item__name {
-      display: none;
-    }
+@prefix: cvp-sidebar;
+
+.cvp-sidebar--collapse.cvp-sidebar {
+  width: 64px;
+  .cvp-transition();
+  .@{prefix}__header {
+    padding: 19px 12px;
   }
-  .cvp-main {
-    margin-left: 64px;
+  .@{prefix}__logo {
+    width: 40px;
     .cvp-transition();
+  }
+  .@{prefix}__nav-item {
+    position: relative;
+    padding-left: 0;
+  }
+  .@{prefix}__nav-item__action {
+    display: none;
+  }
+  .@{prefix}__nav-item__name {
+    display: none;
+  }
+  .@{prefix}__subnav {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    overflow-y: auto;
+    max-height: 500px;
+    > li {
+      padding: 12px;
+      min-width: 100px;
+      .cvp-text-overflow;
+    }
   }
 }
 
@@ -136,9 +170,10 @@ export default {
   width: 220px;
   height: 100%;
   color: #fff;
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-y: auto;
+  // overflow-x: hidden;
   background-color: @sidebar-color;
+  z-index: 1;
   .cvp-transition();
   &__header {
     padding: 19px 24px;

@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="cvp-wrap" :class="{ 'hide-sidebar': isHideSidebar }">
-    <x-side-bar></x-side-bar>
+  <div id="app" class="cvp-wrap" :class="{ 'cvp-wrap--collapse': isCollapse }">
+    <x-side-bar :isCollapse="isCollapse"></x-side-bar>
     <main class="cvp-main">
       <x-header :user="user" @sidebarToggle="sidebarToggle"></x-header>
       <div class="cvp-container-fluid" v-loading="isLoading">
@@ -24,7 +24,7 @@ export default {
   name: 'layout',
   data() {
     return {
-      isHideSidebar: false,
+      isCollapse: false,
     }
   },
   components: {
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     sidebarToggle() {
-      return this.isHideSidebar = !this.isHideSidebar;
+      return this.isCollapse = !this.isCollapse;
     }
   }
 };
@@ -50,6 +50,12 @@ export default {
 
 .cvp-wrap {
   position: relative;
+  &&--collapse {
+    .cvp-main {
+      margin-left: 64px;
+      .cvp-transition();
+    }
+  }
 }
 
 .cvp-main {
