@@ -6,7 +6,17 @@ import utils from '@/utils';
 import store from '@/store';
 import plugins from '@/plugins';
 import '@/components';
-import { Alert, Panel, Row, Col, message } from 'cd-vue';
+import {
+  Alert,
+  Panel,
+  Row,
+  Col,
+  message,
+  CollapseTransition,
+  Sidebar,
+  VMenu,
+  VSubmenu
+} from 'cd-vue';
 
 import 'cd-vue/src/styles/index.less';
 import '@/assets/styles/main.less';
@@ -19,6 +29,12 @@ Vue.component('cd-alert', Alert);
 Vue.component('cd-panel', Panel);
 Vue.component('cd-row', Row);
 Vue.component('cd-col', Col);
+Vue.component('cd-collapse-transition', CollapseTransition);
+Vue.component('cd-sidebar', Sidebar);
+Vue.component('cd-v-menu', VMenu);
+Vue.component('cd-v-submenu', VSubmenu);
+
+
 Vue.prototype.$message = message;
 
 Vue.config.productionTip = false;

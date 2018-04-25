@@ -14,7 +14,7 @@
       <el-table-column
         label="课程名"
         min-width="300">
-        <template scope="scope">
+        <template slot-scope="scope">
           <div style="padding: 10px 0" class="cvp-text-overflow">
             <img class="cvp-v-middle" style="height: 60px" :src="scope.row.cover.small" alt="">
             <span>{{ scope.row.title }}</span>
@@ -24,7 +24,7 @@
       <el-table-column
         label="课程状态"
         width="120">
-        <template scope="scope">
+        <template slot-scope="scope">
           {{ scope.row.status|courseStatus }}
         </template>
       </el-table-column>
@@ -33,7 +33,7 @@
         label="价格"
         width="120"
         sortable>
-        <template scope="scope">
+        <template slot-scope="scope">
           <div class="cvp-text-right cvp-width-50">
             {{ scope.row.minCoursePrice }}
           </div>
@@ -42,7 +42,7 @@
       <el-table-column
         label="课程类型"
         width="120">
-        <template scope="scope">
+        <template slot-scope="scope">
           {{ scope.row.type|courseType }}
         </template>
       </el-table-column>
@@ -55,14 +55,14 @@
         prop="createdTime"
         label="创建时间"
         width="200">
-        <template scope="scope">
+        <template slot-scope="scope">
           {{ scope.row.createdTime|datetime }}
         </template>
       </el-table-column>
       <el-table-column
         label="更新时间"
         width="200">
-        <template scope="scope">
+        <template slot-scope="scope">
           {{ scope.row.updatedTime|datetime }}
         </template>
       </el-table-column>
