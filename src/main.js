@@ -18,6 +18,8 @@ import {
   VSubmenu
 } from 'cd-vue';
 
+import '@/assets/styles/main.less';
+
 Vue.use(filters);
 Vue.use(plugins);
 Vue.use(ElementUI);
