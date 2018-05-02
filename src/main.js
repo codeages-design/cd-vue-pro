@@ -18,9 +18,6 @@ import {
   VSubmenu
 } from 'cd-vue';
 
-import 'cd-vue/src/styles/index.less';
-import '@/assets/styles/main.less';
-
 Vue.use(filters);
 Vue.use(plugins);
 Vue.use(ElementUI);
@@ -33,7 +30,6 @@ Vue.component('cd-collapse-transition', CollapseTransition);
 Vue.component('cd-sidebar', Sidebar);
 Vue.component('cd-v-menu', VMenu);
 Vue.component('cd-v-submenu', VSubmenu);
-
 
 Vue.prototype.$message = message;
 
