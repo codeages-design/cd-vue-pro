@@ -18,6 +18,7 @@ import {
   VSubmenu
 } from 'cd-vue';
 
+import '@/assets/styles/element-variables.scss';
 import '@/assets/styles/main.less';
 
 Vue.use(filters);
